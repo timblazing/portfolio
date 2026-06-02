@@ -19,9 +19,9 @@ export const DATA = {
   location: "Oklahoma City, OK",
   locationLink: "https://www.google.com/maps/place/oklahoma+city",
   description:
-    "I'm a software engineer and entrepreneur. I love building things and helping people.",
+    "Technical specialist focused on system administration, IT operations, network infrastructure, database administration, and software development.",
   summary:
-    "I'm a software engineer and entrepreneur. I love building things and helping people.",
+    "I work across IT operations, system administration, and software development to keep teams moving and technical systems reliable. My background includes network infrastructure, telecommunications support, system management, database administration, customer-facing troubleshooting, and building practical technical solutions for real business workflows.",
   avatarUrl: "/me.png",
   skills: [
     { name: "React", icon: ReactLight },
@@ -41,29 +41,29 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "clay@blasingame.dev",
+    tel: "",
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/timblazing",
         icon: Icons.github,
         navbar: true,
       },
 
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/clay-blasingame/",
         icon: Icons.linkedin,
 
         navbar: true,
       },
-      email: {
-        name: "Send Email",
-        url: "#",
+      Email: {
+        name: "Email",
+        url: "mailto:clay@blasingame.dev",
         icon: Icons.email,
 
-        navbar: false,
+        navbar: true,
       },
     },
   },
@@ -79,7 +79,7 @@ export const DATA = {
       start: "October 2024",
       end: "Present",
       description:
-        "",
+        "Manage internal systems, IT operations, and technical support for a growing construction business. Support system administration, database administration, network infrastructure, process improvement, and practical software workflows that keep day-to-day operations reliable.",
     },
     {
       company: "Cox Communications",
@@ -91,7 +91,7 @@ export const DATA = {
       start: "January 2021",
       end: "April 2021",
       description:
-        "",
+        "Diagnosed internet and cable service issues across phone and chat support channels. Documented customer cases, escalated trending issues through ticketing workflows, and worked against support KPIs including first-call resolution, customer sentiment, and average handle time.",
     },
     {
       company: "Costco",
@@ -103,7 +103,7 @@ export const DATA = {
       start: "January 2020",
       end: "April 2020",
       description:
-        "",
+        "Supported customers across ecommerce orders, warranty questions, account concerns, and technical website issues. Used CRM tools to document interactions, guide customers through resolutions, and escalate product listing, promotion, and discount issues when needed.",
     },
   ],
   education: [

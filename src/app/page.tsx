@@ -2,10 +2,11 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
 import { DATA } from "@/data/resume";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import ContactSection from "@/components/section/contact-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
@@ -13,6 +14,8 @@ import { ArrowUpRight } from "lucide-react";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const contactLinks = Object.entries(DATA.contact.social);
+
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">
@@ -30,6 +33,30 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  {contactLinks.map(([key, social]) => {
+                    const Icon = social.icon;
+                    const isExternal = social.url.startsWith("http");
+
+                    return (
+                      <Link
+                        key={key}
+                        href={social.url}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "sm" }),
+                          "gap-2 bg-transparent px-0 pr-3 underline-offset-4 shadow-none hover:bg-transparent hover:underline"
+                        )}
+                      >
+                        <Icon className="size-4" aria-hidden="true" />
+                        {social.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
@@ -132,11 +159,6 @@ export default function Page() {
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <ProjectsSection />
-        </BlurFade>
-      </section>
-      <section id="contact">
-        <BlurFade delay={BLUR_FADE_DELAY * 16}>
-          <ContactSection />
         </BlurFade>
       </section>
     </main>
