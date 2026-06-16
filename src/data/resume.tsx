@@ -1,16 +1,15 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Python } from "@/components/ui/svgs/python";
-import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
-import { Csharp } from "@/components/ui/svgs/csharp";
+import { Linux } from "@/components/ui/svgs/linux";
+import { Microsoft365 } from "@/components/ui/svgs/microsoft365";
+import { Caddy } from "@/components/ui/svgs/caddy";
+import { Nginx } from "@/components/ui/svgs/nginx";
+import { SQLite } from "@/components/ui/svgs/sqlite";
 
 export const DATA = {
   name: "Clay Blasingame",
@@ -19,26 +18,22 @@ export const DATA = {
   location: "Oklahoma City, OK",
   locationLink: "https://www.google.com/maps/place/oklahoma+city",
   description:
-    "Technical specialist focused on system administration, IT operations, network infrastructure, database administration, and software development.",
+    "Systems administrator who also ships software. I keep infrastructure reliable, automate the manual stuff, and build the internal tools a business actually runs on.",
   summary:
-    "I work across IT operations, system administration, and software development to keep teams moving and technical systems reliable. My background includes network infrastructure, telecommunications support, system management, database administration, customer-facing troubleshooting, and building practical technical solutions for real business workflows.",
+    "I run IT operations and systems administration day to day, but I also like building the tools that make the work faster. That includes an internal CRM/admin dashboard, API integrations between the platforms the business already uses, and automation that cuts out manual steps. My experience covers network infrastructure, Microsoft 365 and Exchange administration, self-hosted Linux services, and full-stack development. I lean toward practical solutions that solve the actual problem instead of over-engineered ones that just look good on paper.",
   avatarUrl: "/me.png",
   skills: [
-    { name: "React", icon: ReactLight },
-    { name: "Next.js", icon: NextjsIconDark },
-    { name: "Typescript", icon: Typescript },
-    { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
-    { name: "Go", icon: Golang },
-    { name: "Postgres", icon: Postgresql },
+    { name: "Linux", icon: Linux },
     { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "Java", icon: Java },
-    { name: "C++", icon: Csharp },
-  ],
-  navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { name: "Microsoft 365", icon: Microsoft365 },
+    { name: "Caddy", icon: Caddy },
+    { name: "Nginx", icon: Nginx },
+    { name: "React", icon: ReactLight },
+    { name: "Typescript", icon: Typescript },
+    { name: "Next.js", icon: NextjsIconDark },
+    { name: "Python", icon: Python },
+    { name: "Postgres", icon: Postgresql },
+    { name: "SQLite", icon: SQLite },
   ],
   contact: {
     email: "clay@blasingame.dev",
@@ -48,22 +43,17 @@ export const DATA = {
         name: "GitHub",
         url: "https://github.com/timblazing",
         icon: Icons.github,
-        navbar: true,
       },
 
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/clay-blasingame/",
         icon: Icons.linkedin,
-
-        navbar: true,
       },
       Email: {
         name: "Email",
         url: "mailto:clay@blasingame.dev",
         icon: Icons.email,
-
-        navbar: true,
       },
     },
   },
@@ -76,10 +66,11 @@ export const DATA = {
       location: "Edmond, OK",
       title: "IT & Systems Administrator",
       logoUrl: "/graco.png",
+      darkLogoUrl: "/graco-light.png",
       start: "October 2024",
       end: "Present",
       description:
-        "Manage internal systems, IT operations, and technical support for a growing construction business. Support system administration, database administration, network infrastructure, process improvement, and practical software workflows that keep day-to-day operations reliable.",
+        "Run all IT operations and systems administration for a growing roofing & construction company. Built an internal CRM and admin dashboard that pulls the company's roofing-CRM and fleet platforms (AccuLynx, Samsara) into one place, deployed on self-hosted infrastructure. Administer Microsoft 365 and Exchange Online for the org, automate manual workflows, and maintain the network, servers, and day-to-day systems the business depends on.",
     },
     {
       company: "Cox Communications",

@@ -7,7 +7,6 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 
@@ -47,11 +46,18 @@ export default function Page() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={cn(
                           buttonVariants({ variant: "ghost", size: "sm" }),
-                          "gap-2 bg-transparent px-0 pr-3 underline-offset-4 shadow-none hover:bg-transparent hover:underline"
+                          "group h-8 gap-0 rounded-full bg-transparent px-3 text-muted-foreground shadow-none transition-all duration-200 hover:bg-transparent hover:text-foreground"
                         )}
                       >
-                        <Icon className="size-4" aria-hidden="true" />
-                        {social.name}
+                        <Icon
+                          className="mr-2 size-4 text-muted-foreground transition-colors duration-200 group-hover:text-foreground"
+                          aria-hidden="true"
+                        />
+                        <span>{social.name}</span>
+                        <ArrowUpRight
+                          className="ml-0 h-3.5 w-0 -translate-x-1.5 overflow-hidden text-muted-foreground opacity-0 transition-[width,margin,transform,opacity] duration-200 group-hover:ml-1.5 group-hover:w-3.5 group-hover:translate-x-0 group-hover:opacity-100"
+                          aria-hidden
+                        />
                       </Link>
                     );
                   })}
@@ -155,11 +161,6 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
-      <section id="projects">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
-        </BlurFade>
       </section>
     </main>
   );
