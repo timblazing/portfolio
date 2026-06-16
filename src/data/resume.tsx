@@ -20,7 +20,7 @@ export const DATA = {
   description:
     "Systems administrator who also ships software. I keep infrastructure reliable, automate the manual stuff, and build the internal tools a business actually runs on.",
   summary:
-    "I run IT operations and systems administration day to day, but I also like building the tools that make the work faster. That includes an internal CRM/admin dashboard, API integrations between the platforms the business already uses, and automation that cuts out manual steps. My experience covers network infrastructure, Microsoft 365 and Exchange administration, self-hosted Linux services, and full-stack development. I lean toward practical solutions that solve the actual problem instead of over-engineered ones that just look good on paper.",
+    "I run IT operations and systems administration day to day, but I also like building the tools that make the work faster. My experience covers network infrastructure, Microsoft 365 and Exchange administration, self-hosted Linux services, and full-stack development. I lean toward practical solutions that solve the actual problem instead of over-engineered ones that just look good on paper.",
   avatarUrl: "/me.png",
   skills: [
     { name: "Linux", icon: Linux },
