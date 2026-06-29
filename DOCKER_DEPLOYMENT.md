@@ -4,20 +4,29 @@ This app is packaged as a Next.js standalone server image and published to GitHu
 
 ## Build and Publish
 
-Authenticate once from your development machine:
+Pushing to `main` automatically builds and publishes a multi-platform image with GitHub Actions:
+
+```text
+ghcr.io/timblazing/portfolio:latest
+ghcr.io/timblazing/portfolio:<git-sha>
+```
+
+The workflow can also be run manually from the repository's Actions tab.
+
+For local publishing, authenticate once from your development machine:
 
 ```bash
 echo "$GITHUB_TOKEN" | docker login ghcr.io -u timblazing --password-stdin
 ```
 
-Build and publish a multi-platform image:
+Then build and publish a multi-platform image:
 
 ```bash
 chmod +x build-and-push.sh
 ./build-and-push.sh
 ```
 
-The script publishes:
+The script publishes the same tags:
 
 ```text
 ghcr.io/timblazing/portfolio:latest

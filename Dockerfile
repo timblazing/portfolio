@@ -14,6 +14,7 @@ COPY . .
 RUN bun run build
 
 FROM node:22-alpine AS runner
+LABEL org.opencontainers.image.source=https://github.com/timblazing/portfolio
 WORKDIR /app
 
 ENV NODE_ENV=production
