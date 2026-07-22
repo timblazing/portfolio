@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
@@ -100,6 +101,11 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
+      <Script
+        src="https://umami.blasingame.dev/script.js"
+        data-website-id="7d6d408f-9221-4320-80ef-21d54919c4d5"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
