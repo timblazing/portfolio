@@ -45,6 +45,9 @@ export default function Page() {
                         href={social.url}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
+                        data-umami-event="contact-link-click"
+                        data-umami-event-name={social.name}
+                        data-umami-event-url={social.url}
                         className={cn(
                           buttonVariants({ variant: "ghost", size: "sm" }),
                           "group h-8 gap-0 rounded-full bg-transparent px-3 text-muted-foreground shadow-none transition-all duration-200 hover:bg-transparent hover:text-foreground",
@@ -54,7 +57,9 @@ export default function Page() {
                           className="mr-2 size-4 text-muted-foreground transition-colors duration-200 group-hover:text-foreground"
                           aria-hidden="true"
                         />
+
                         <span>{social.name}</span>
+
                         <ArrowUpRight
                           className="ml-0 h-3.5 w-0 -translate-x-1.5 overflow-hidden text-muted-foreground opacity-0 transition-[width,margin,transform,opacity] duration-200 group-hover:ml-1.5 group-hover:w-3.5 group-hover:translate-x-0 group-hover:opacity-100"
                           aria-hidden
@@ -111,6 +116,9 @@ export default function Page() {
                   href={education.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event="education-link-click"
+                  data-umami-event-school={education.school}
+                  data-umami-event-url={education.href}
                   className="flex items-center gap-x-3 justify-between group"
                 >
                   <div className="flex items-center gap-x-3 flex-1 min-w-0">

@@ -84,7 +84,7 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="portfolio-system-theme"
         >
-          <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
+          <div className="absolute inset-0 top-0 left-0 right-0 h-25 overflow-hidden z-0">
             <FlickeringGrid
               className="h-full w-full"
               squareSize={2}
@@ -102,7 +102,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <Script
-        src="https://umami.blasingame.dev/script.js"
+        src="https://umami.blasingame.dev/telemetry.js"
         data-website-id="7d6d408f-9221-4320-80ef-21d54919c4d5"
         strategy="afterInteractive"
       />
