@@ -179,15 +179,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="github-contributions">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 12}>
-            <div className="overflow-x-auto pb-2">
-              <GithubCalendar username="timblazing" />
-            </div>
-          </BlurFade>
-        </div>
-      </section>
     </main>
   );
 }
