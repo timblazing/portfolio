@@ -8,3 +8,10 @@ export function resolveArticleImageUrl(
 
   return new URL(image, siteUrl).toString();
 }
+
+export function resolveArticleModifiedDate(
+  publishedAt: string,
+  updatedAt?: string
+): string {
+  return updatedAt || publishedAt;
+}
