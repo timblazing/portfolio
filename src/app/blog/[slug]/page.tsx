@@ -1,5 +1,9 @@
 import { allPosts } from "content-collections";
 import { formatDate } from "@/lib/utils";
+import {
+  resolveArticleImageUrl,
+  resolveArticleModifiedDate,
+} from "@/lib/blog-metadata";
 import { DATA } from "@/data/resume";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -40,9 +44,12 @@ export async function generateMetadata({
   let {
     title,
     publishedAt: publishedTime,
+    updatedAt,
     summary: description,
     image,
   } = post;
+  const imageUrl = resolveArticleImageUrl(image, DATA.url);
+  const modifiedTime = resolveArticleModifiedDate(publishedTime, updatedAt);
 
   return {
     title,
@@ -52,11 +59,12 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
+      modifiedTime,
       url: `${DATA.url}/blog/${slug}`,
-      ...(image && {
+      ...(imageUrl && {
         images: [
           {
-            url: `${DATA.url}${image}`,
+            url: imageUrl,
           },
         ],
       }),
@@ -65,8 +73,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      ...(image && {
-        images: [`${DATA.url}${image}`],
+      ...(imageUrl && {
+        images: [imageUrl],
       }),
     },
   };
@@ -90,6 +98,12 @@ export default async function Blog({
     notFound();
   }
 
+  const imageUrl = resolveArticleImageUrl(post.image, DATA.url);
+  const modifiedTime = resolveArticleModifiedDate(
+    post.publishedAt,
+    post.updatedAt
+  );
+
   const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 
@@ -101,10 +115,10 @@ export default async function Blog({
     "@type": "BlogPosting",
     headline: post.title,
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: modifiedTime,
     description: post.summary,
-    image: post.image
-      ? `${DATA.url}${post.image}`
+    image: imageUrl
+      ? imageUrl
       : `${DATA.url}/blog/${slug}/opengraph-image`,
     url: `${DATA.url}/blog/${slug}`,
     author: {
