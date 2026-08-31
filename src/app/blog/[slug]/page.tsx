@@ -1,5 +1,6 @@
 import { allPosts } from "content-collections";
 import { formatDate } from "@/lib/utils";
+import { resolveArticleImageUrl } from "@/lib/blog-metadata";
 import { DATA } from "@/data/resume";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -43,6 +44,7 @@ export async function generateMetadata({
     summary: description,
     image,
   } = post;
+  const imageUrl = resolveArticleImageUrl(image, DATA.url);
 
   return {
     title,
@@ -53,10 +55,10 @@ export async function generateMetadata({
       type: "article",
       publishedTime,
       url: `${DATA.url}/blog/${slug}`,
-      ...(image && {
+      ...(imageUrl && {
         images: [
           {
-            url: `${DATA.url}${image}`,
+            url: imageUrl,
           },
         ],
       }),
@@ -65,8 +67,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      ...(image && {
-        images: [`${DATA.url}${image}`],
+      ...(imageUrl && {
+        images: [imageUrl],
       }),
     },
   };
@@ -90,6 +92,8 @@ export default async function Blog({
     notFound();
   }
 
+  const imageUrl = resolveArticleImageUrl(post.image, DATA.url);
+
   const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 
@@ -103,8 +107,8 @@ export default async function Blog({
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     description: post.summary,
-    image: post.image
-      ? `${DATA.url}${post.image}`
+    image: imageUrl
+      ? imageUrl
       : `${DATA.url}/blog/${slug}/opengraph-image`,
     url: `${DATA.url}/blog/${slug}`,
     author: {
