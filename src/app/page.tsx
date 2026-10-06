@@ -9,7 +9,6 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
-import { GithubCalendar } from "@/components/ui/github-calendar";
 
 const BLUR_FADE_DELAY = 0.04;
 

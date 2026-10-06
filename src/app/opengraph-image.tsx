@@ -1,8 +1,10 @@
  
 import { ImageResponse } from "next/og";
 import { DATA } from "@/data/resume";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 
 export const alt = DATA.name;
 export const size = {
@@ -12,20 +14,11 @@ export const size = {
 export const contentType = "image/png";
 
 const getFontData = async () => {
-    try {
-        const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL("../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL("../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
-        ]);
-        return { cabinetGrotesk, clashDisplay };
-    } catch (error) {
-        console.error("Failed to load fonts:", error);
-        return null;
-    }
+    const [cabinetGrotesk, clashDisplay] = await Promise.all([
+        readFile(join(process.cwd(), "public/fonts/CabinetGrotesk-Medium.ttf")),
+        readFile(join(process.cwd(), "public/fonts/ClashDisplay-Semibold.ttf")),
+    ]);
+    return { cabinetGrotesk, clashDisplay };
 };
 
 const styles = {
@@ -168,5 +161,3 @@ export default async function Image() {
         );
     }
 }
-
-
