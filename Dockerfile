@@ -13,4 +13,4 @@ FROM nginx:alpine AS runner
 LABEL org.opencontainers.image.source=https://github.com/timblazing/portfolio
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/out /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 3000
