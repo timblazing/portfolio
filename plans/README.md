@@ -8,15 +8,13 @@ update its status row when finished.
 ## Execution order & status
 
 The plan numbers preserve the audit finding numbers. Recommended execution
-order starts with the test baseline, then the metadata fixes, while workflow
-pinning can run independently.
+order starts with the test baseline, then the metadata fixes.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |---|---|---:|---:|---|---|
 | 004 | Establish a minimal automated test baseline | P1 | M | — | DONE |
 | 001 | Normalize blog image URLs in metadata | P1 | S | 004 | DONE |
 | 002 | Publish accurate article modification dates | P1 | S | 001 | DONE |
-| 003 | Pin the image-publishing workflow actions | P1 | S | — | DONE |
 
 Status values: `TODO` | `IN PROGRESS` | `DONE` | `BLOCKED` (with a one-line
 reason) | `REJECTED` (with a one-line rationale).
@@ -27,8 +25,8 @@ reason) | `REJECTED` (with a one-line rationale).
   commands used by plans 001 and 002.
 - Plan 001 creates the shared `src/lib/blog-metadata.ts` module that plan 002
   extends for the date fallback helper.
-- Plan 003 is independent and only changes immutable references in the CI
-  workflow.
+- Plan 003 (image-publishing workflow pinning) was retired when deployment
+  moved to Cloudflare Pages and the container workflow was removed.
 
 ## Findings considered and rejected
 
