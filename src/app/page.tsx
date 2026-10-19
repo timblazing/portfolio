@@ -55,7 +55,7 @@ export default function Page() {
           {DATA.projects.map((project) => (
             <ListRow
               key={project.title}
-              href={project.href || undefined}
+              href={project.href}
               title={project.title}
               description={project.description}
               data-umami-event="project-click"

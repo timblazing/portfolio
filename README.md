@@ -1,6 +1,7 @@
 # portfolio
 
-Personal site built with Next.js and exported as static files for Cloudflare Pages.
+Minimal personal site built with Next.js and exported as static files for Cloudflare Pages.
+Page content lives in `src/data/resume.tsx`.
 
 ## Local development
 
@@ -9,7 +10,7 @@ bun install --frozen-lockfile
 bun run dev
 ```
 
-Run `bun run lint`, `bun run test`, and `bun run typecheck` for local checks.
+Run `bun run lint` and `bun run typecheck` for local checks.
 Run `bun run build` to generate the production site in `out/`.
 
 ## Deployment
