@@ -3,20 +3,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
-const geist = Geist({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-mono",
+  variable: "--font-dm-sans",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -72,9 +65,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased relative",
-          geist.variable,
-          geistMono.variable
+          "flex min-h-screen flex-col bg-background font-sans antialiased relative",
+          dmSans.variable,
         )}
       >
         <ThemeProvider
@@ -84,19 +76,7 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="portfolio-system-theme"
         >
-          <div className="absolute inset-0 top-0 left-0 right-0 h-25 overflow-hidden z-0">
-            <FlickeringGrid
-              className="h-full w-full"
-              squareSize={2}
-              gridGap={2}
-              style={{
-                maskImage: "linear-gradient(to bottom, black, transparent)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, black, transparent)",
-              }}
-            />
-          </div>
-          <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+          <div className="w-full flex-1 flex flex-col justify-center max-w-xl mx-auto px-6 py-16 sm:py-24">
             {children}
           </div>
         </ThemeProvider>
